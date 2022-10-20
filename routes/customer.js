@@ -1,43 +1,43 @@
 const express = require('express')
-const ToyModel = require('../models/ToyModel')
+const CustomerModel = require('../models/CustomerModel')
 const router = express.Router()
 
 //URL: localhost:1000/toy
 router.get('/', (req, res) => {
-    ToyModel.find((err, data) => {
+    CustomerModel.find((err, data) => {
         if (!err) {
             //res.send(data)
             //render ra trang index ở thư mục views/student
-            res.render('toy/index', { toy: data })
+            res.render('customer/index', { customer: data })
         }
     })
 })
 
 router.get('/delete/:id', (req, res) => {
-    ToyModel.findByIdAndDelete(req.params.id, (err) => {
+    CustomerModel.findByIdAndDelete(req.params.id, (err) => {
         if (err) {
             console.log(err)
         } else {
-            console.log("Delete toy succeed !");
+            console.log("Delete customer succeed !");
             //var message = "Delete student succeed !";
-            //redirect về trang /student (URL không phải view)
-            res.redirect("/toy");
+            //redirect về trang /customer (URL không phải view)
+            res.redirect("/customer");
         }
     })
 })
 
 //render ra form ADD
 router.get('/add', (req, res) => {
-    res.render("toy/new");
+    res.render("customer/new");
 })
 
 //nhận & xử lý dữ liệu từ form ADD
 router.post('/add', (req, res) => {
-    var toy = new ToyModel(req.body)
+    var customer = new CustomerModel(req.body)
     toy.save((err) => {
         if (!err) {
-            console.log("Add toy succeed !")
-            res.redirect("/toy")
+            console.log("Add customer succeed !")
+            res.redirect("/customer")
         }
     })
 })
@@ -45,12 +45,12 @@ router.post('/add', (req, res) => {
 
 //render ra form EDIT
 router.get('/edit/:id', (req, res) => {
-    ToyModel.findById(req.params.id, (err, data) => {
+    CustomerModel.findById(req.params.id, (err, data) => {
         if (!err) {
             //render ra file: update.hbs (trong thư mục views/student)
             //gửi kèm dữ liệu của object student để load vào form edit
             //student (tên) , data (dữ liệu)
-            res.render("toy/update", { toy: data })
+            res.render("customer/update", { customer: data })
         }
     })
 })
@@ -59,18 +59,19 @@ router.get('/edit/:id', (req, res) => {
 router.post('/edit/:id', (req, res) => {
     var id = req.params.id;
     var toy = req.body;
-    ToyModel.findByIdAndUpdate(id, toy, (err) => {
+    CustomerModel.findByIdAndUpdate(id, toy, (err) => {
         if (!err) {
-            console.log("Update toy succeed !")
-            res.redirect("/toy")
+            console.log("Update customer succeed !")
+            res.redirect("/customer")
         }
     })
 })
 
 router.get('/detail/:id', (req, res) => {
-    ToyModel.findById(req.params.id, (err, toy) => {
+    // (err,data)(customer: data)
+    CustomerModel.findById(req.params.id, (err, customer) => {
         if (!err) {
-            res.render('toy/info', { toy: toy })
+            res.render('customer/info', { customer: customer })
         }
     })
 })
@@ -79,30 +80,32 @@ router.get('/detail/:id', (req, res) => {
 
 //search function
 router.post('/search', (req, res) => {
-        ToyModel.find({ name: new RegExp(req.body.name, "i") }, (err, data) => {
+        CustomerModel.find({ name: new RegExp(req.body.name, "i") }, (err, data) => {
             if (!err) {
-                res.render('toy/index', { toy: data })
+                res.render('customer/index', { customer: data })
             }
         })
     })
     //sort function
 router.get('/sort/asc', (req, res) => {
-    ToyModel.find()
+    CustomerModel.find()
         .sort({ name: 1 })
         .exec((err, data) => {
             if (!err) {
-                res.render('toy/index', { toy: data })
+                res.render('customer/index', { customer: data })
             }
         })
 })
 router.get('/sort/desc', (req, res) => {
-    ToyModel.find()
+    CustomerModel.find()
         .sort({ name: -1 })
         .exec((err, data) => {
             if (!err) {
-                res.render('toy/index', { toy: data })
+                res.render('customer/index', { customer: data })
             }
         })
 })
+
+
 
 module.exports = router

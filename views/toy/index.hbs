@@ -2,7 +2,7 @@
    <tr>
       <th class="text-primary" colspan="4">Toy List</th>
       <th>
-         <a class="btn btn-primary" href="toy/add">ADD</a>
+         <a class="btn btn-primary" href="/toy/add">ADD</a>
       </th>
    </tr>
    <tr>
@@ -13,20 +13,20 @@
       <th>Made</th>
    </tr>
    <tr>
-    {{!-- <th colspan="4">
-         <select class="form-control">
+    <th colspan="4">
+         <select class="form-control" onchange="window.location.href=this.value">
             <option value="">Sort by name</option>
-            <option value="toy/sort/asc">Ascending</option>
-            <option value="toy/sort/desc">Descending</option>
+            <option value="/toy/sort/asc">Ascending</option>
+            <option value="/toy/sort/desc">Descending</option>
          </select>
-      </th> --}}
-      {{!-- <th colspan="2">
-         <form action="toy/search" method="post">
+      </th>
+      <th colspan="2">
+         <form action="/toy/search" method="post">
             <div class="form-group">
-               <input class="form-control" type="search" name="name" placeholder="Enter student name to search">
+               <input class="form-control" type="search" name="name" placeholder="Enter toy name to search">
             </div>
          </form>
-      </th> --}}
+      </th>
    </tr>
    {{#each toy }}
    <tr>
@@ -34,7 +34,7 @@
       <td>{{price}}</td>
       <td>{{dateFormat dob "DD/MM/YYYY"}}</td>
       <td>
-         <a href="toy/detail/{{_id}}">
+         <a href="/toy/detail/{{_id}}">
             <img src="{{image}}" width="100" height="100">
          </a>
       </td>
@@ -47,9 +47,48 @@
          {{/equal}}
       </td> --}}
       <td>
-         <a class="btn btn-warning" href="toy/edit/{{_id}}">EDIT</a>
-         <a class="btn btn-danger" href="toy/delete/{{_id}}">DELETE</a>
+         <a class="btn btn-warning" href="/toy/edit/{{_id}}">EDIT</a>
+         <a class="btn btn-danger" href="/toy/delete/{{_id}}">DELETE</a>
       </td>
    </tr>
    {{/each}}
 </table>
+
+
+{{!-- //////////////////////////////////// --}}
+
+
+ <div class="featured__controls">
+                       <ul>
+                            <li class="active" data-filter="*">All</li>
+                        </ul>
+                    </div>
+
+{{!--  --}}
+<div class="row grid">
+{{#each toy}}
+<div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat  ">
+                    <div class="featured__item">
+                        <div class="featured__item__pic set-bg" >
+                        <img src="{{image}}" alt="">
+                            <ul class="featured__item__pic__hover">
+                                <li><a href="/toy/detail/{{_id}}"><i class="fa fa-heart" style="margin-top: 12px;"></i></a></li>
+                                <li><a href="/toy/edit/{{_id}}"><i class="fa fa-retweet" style="margin-top: 12px;"></i></a></li>
+                                <li><a href="/toy/delete/{{_id}}"><i class="fa fa-shopping-cart" style="margin-top: 12px;"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="featured__item__text">
+                            <h6><a href="#">{{name}}</a></h6>
+                            <h5>{{price}}$</h5>
+                        </div>
+                    </div>
+                </div>
+{{/each}}
+</div>
+
+
+
+
+
+
+

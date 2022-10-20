@@ -6,6 +6,7 @@ var ToySchema = new mongoose.Schema({
     made: String,
     image: String,
     dob: Date,
+    des: String,
 }, {
     versionKey: false //optional (to remove _v: 0 when add new data)
 })

@@ -6,6 +6,7 @@ var logger = require('morgan')
 
 var indexRouter = require('./routes/index')
 var toyRouter = require('./routes/toy')
+var customer = require('./routes/customer')
     // var lecturerRouter = require('./routes/lecturer')
     //Lỗi cors là một chính sách của trình duyệt nhằm ngăn chặn việc truy cập tài nguyên của các domain khác khi không được phép
     // var cors = require('cors')
@@ -46,6 +47,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', indexRouter)
 app.use('/toy', toyRouter)
+app.use('/customer', customer)
     // app.use('/lecturer', lecturerRouter)
 
 // catch 404 and forward to error handler
@@ -66,7 +68,11 @@ app.use(function(err, req, res, next) {
 
 const port = process.env.PORT || 1000
 app.listen(port, () => {
-    console.log('http://localhost:1000')
-})
+        console.log('http://localhost:1000')
+    })
+    //date
+var hbs = require('hbs');
+hbs.registerHelper('dateFormat', require('handlebars-dateformat'));
+
 
 module.exports = app
