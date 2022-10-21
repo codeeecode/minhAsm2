@@ -143,7 +143,7 @@ img {
   text-align: center;
   line-height: 2em; }
   .not-available:before {
-    font-family: fontawesome;
+   font-family: fontawesome;
     content: "\f00d";
     color: #fff; }
 
@@ -188,27 +188,23 @@ img {
 	<div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <h2>Detail Lego</h2>
+                    <h2>Detail Pokemon</h2>
                 </div>
             </div>
         </div>
 
 
 	<div class="container" >
-		<div class="card" style="margin-top:0px">
+		<div class="card" style="margin-top:0px" >
 			<div class="container-fliud">
 				<div class="wrapper row">
 					<div class="preview col-md-6">
-						
 						<div class="preview-pic tab-content">
-						  <div class="tab-pane active" id="pic-1"><img src="{{toy.image}}" /></div>
-						 
+						  <div class="tab-pane active" id="pic-1"><img src="{{card.image}}" /></div>
 						</div>
-						
-						
 					</div>
 					<div class="details col-md-6">
-						<h3 class="product-title">{{toy.name}}</h3>
+						<h3 class="product-title">{{card.name}}</h3>
 						<div class="rating">
 							<div class="stars">
 								<span class="fa fa-star checked"></span>
@@ -218,15 +214,14 @@ img {
 								<span class="fa fa-star"></span>
 							</div>
 							<span class="review-no">41 reviews</span>
-                     
 						</div>
-						<h5 class="sizes"> Describe: <span>{{toy.des}}</span></h5>
-						<h4 class="price">Price: <span>{{toy.price}} $</span></h4>
+						<h5 class="sizes"> Describe: <span>{{card.des}}</span></h5>
+						<h4 class="price">Price: <span>{{card.price}} $</span></h4>
 						<h5 class="sizes">Made:
-							<span>{{toy.made}}</span>
+							<span>{{card.made}}</span>
 						</h5>
 						<h5 class="colors">Date of manufacture:
-							<span>{{dateFormat toy.dob "DD/MM/YYYY"}}</span>
+							<span>{{dateFormat card.dob "DD/MM/YYYY"}}</span>
 						</h5>
                   <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
 						<div class="action">

@@ -6,17 +6,18 @@ var logger = require('morgan')
 
 var indexRouter = require('./routes/index')
 var toyRouter = require('./routes/toy')
-var customer = require('./routes/customer')
-    // var lecturerRouter = require('./routes/lecturer')
-    //Lỗi cors là một chính sách của trình duyệt nhằm ngăn chặn việc truy cập tài nguyên của các domain khác khi không được phép
-    // var cors = require('cors')
+    // var customer = require('./routes/customer')
+var card = require('./routes/card')
+
+//Lỗi cors là một chính sách của trình duyệt nhằm ngăn chặn việc truy cập tài nguyên của các domain khác khi không được phép
+// var cors = require('cors')
 
 var mongoose = require('mongoose')
-var url =
-    'mongodb://localhost:27017/toy'
+    // var url =
+    //     'mongodb://localhost:27017/toy'
 
-// var url =
-//     'mongodb+srv://codecode12345:123456789m@cluster0.ik5tvr8.mongodb.net/cloud'
+var url =
+    'mongodb+srv://codecode12345:987654321m@cluster0.ik5tvr8.mongodb.net/toy'
 mongoose.connect(url, { useNewUrlParser: true }, err => {
     if (!err) {
         console.log('DB connect succeed !')
@@ -47,8 +48,9 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', indexRouter)
 app.use('/toy', toyRouter)
-app.use('/customer', customer)
-    // app.use('/lecturer', lecturerRouter)
+    // app.use('/customer', customer)
+app.use('/card', card)
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

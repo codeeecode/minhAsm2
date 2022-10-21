@@ -1,0 +1,211 @@
+
+{{!-- //////////////////////////////////// --}}
+<section class="hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="hero__categories">
+                    {{!-- <div class="hero__categories__all">
+                        <i class="fa fa-bars"></i>
+                        <span>All</span>
+                    </div> --}}
+                    <div style=" background-color:#7fad39; height:25px"><i
+                            style="color:aliceblue; margin-top:3px; margin-left:8px;font-family: " Cairo",
+                            sans-serif; " class=" fa fa-bars">
+                            <span>
+                                All
+                            </span>
+                        </i>
+                    </div>
+
+
+                    <ul>
+                        <li><a href="#">New products</a></li>
+                        <li><a href="#">Products</a></li>
+                        <li><a href="#">Gender</a></li>
+                        <li><a href="#">Age</a></li>
+                        <li><a href="#">Brands</a></li>
+                        <li><a href="#">Promotions</a></li>
+                        <li><a href="#">Featured campaigns</a></li>
+                        <li><a href="#">Memberships</a></li>
+                        <li><a href="#">Mute capsules</a></li>
+
+                    </ul>
+                </div>
+
+
+            </div>
+            <div class="col-lg-9">
+                <div class="hero__search">
+                    <div class="hero__search__form">
+                        <form action="/card/search" method="post">
+                            <div class="hero__search__categories">
+                                All Products
+                                <span class=""></span>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="search" name="name"
+                                    placeholder="Enter Pokemon name to search">
+                                <button type="submit" class="site-btn">SEARCH</button>
+                            </div>
+                        </form>
+
+                    </div>
+
+                    <div class="hero__search__phone">
+                        <div class="hero__search__phone__icon">
+                            <i class="fa fa-phone" style="margin-top: 18px;"></i>
+                        </div>
+                        <div class="hero__search__phone__text">
+                            <h5>+84 88.888.888</h5>
+                            <span>support 24/7 time</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="hero__item1 ">
+                            <img src="https://assets.pokemon.com/assets//cms2/img/watch-pokemon-tv/_tiles/movie16/movie16-on-ptv-169-en.png"
+                                alt="" class="w100 h500">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="hero__item1 ">
+                            <img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/pokemon-go/10202022/pokemon-go-169.jpg"
+                                class=" wm_h" alt="">
+                        </div>
+
+                        <div class="hero__item1 " style="margin-top: 20px;">
+                            <img src="https://assets.pokemon.com/assets//cms2/img/misc/halloween/2022/stencils/_tiles/halloween-stencils-169.png"
+                                class="w90 " alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{!-- /////////////////////////////////////// --}}
+<section class="featured spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <h2>Featured Product</h2>
+                </div>
+                <div class="featured__controls">
+
+                </div>
+            </div>
+        </div>
+        <div class="featured__controls">
+            <ul>
+                <li class="active" data-filter="*">All</li>
+            </ul>
+        </div>
+
+        {{!-- --}}
+        <div class="row grid">
+            {{#each card}}
+            <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat  ">
+                <div class="featured__item">
+                    <div class="featured__item__pic set-bg">
+                        <img src="{{image}}" alt="">
+                        <ul class="featured__item__pic__hover">
+                            <li><a href="/card/detail/{{_id}}"><i class="fa fa-heart" style="margin-top: 12px;"></i></a>
+                            </li>
+                            <li><a href="/card/edit/{{_id}}"><i class="fa fa-retweet" style="margin-top: 12px;"></i></a>
+                            </li>
+                            <li><a href="/card/delete/{{_id}}"><i class="fa fa-shopping-cart"
+                                        style="margin-top: 12px;"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="featured__item__text">
+                        <h6><a href="#">{{name}}</a></h6>
+                        <h5>{{price}}$</h5>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</section>
+
+{{!-- //////////////////////////////// --}}
+
+
+<section class="from-blog spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title from-blog__title">
+                    <h2>From The Blog</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="blog__item">
+                    <div class="blog__item__pic">
+                        <img style="height: 230px;"
+                            src="https://u6wdnj9wggobj.vcdn.cloud/media/mgs_blog/m/y/mykingdom-day-be-hoc-so.jpeg"
+                            alt="">
+                    </div>
+                    <div class="blog__item__text">
+                        <ul>
+                            <li><i class="fa fa-calendar-o"></i> October 22, 2022</li>
+                            <li><i class="fa fa-comment-o"></i> 5</li>
+                        </ul>
+                        <h5><a href="https://www.mykingdom.com.vn/blog/ba-me-day-be-hoc-so-do-tuoi-nao-la-phu-hop-nhat">What
+                                age number is appropriate for parents to teach their children to learn?</a>
+                        </h5>
+                        <p>Many parents wonder at what age should they teach their children to learn
+                            numbers? Invite parents to learn... </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="blog__item">
+                    <div class="blog__item__pic">
+                        <img style="height: 230px;"
+                            src="https://u6wdnj9wggobj.vcdn.cloud/media/mgs_blog/m/y/mykingdom-ba-lo-upixel.jpeg"
+                            alt="">
+                    </div>
+                    <div class="blog__item__text">
+                        <ul>
+                            <li><i class="fa fa-calendar-o"></i> October 22, 2022</li>
+                            <li><i class="fa fa-comment-o"></i> 9</li>
+                        </ul>
+                        <h5><a
+                                href="https://www.mykingdom.com.vn/blog/ba-lo-upixel-nguoi-ban-dong-hanh-tao-chat-rieng-cho-be">Upixel
+                                backpack - a companion to create your own "quality" for your baby.</a></h5>
+                        <p>Not just a regular backpack, the Upixel backpack for kids also sparks creativity
+                            with many...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="blog__item">
+                    <div class="blog__item__pic">
+                        <img style="height: 230px;"
+                            src="https://u6wdnj9wggobj.vcdn.cloud/media/mgs_blog/m/y/mykingdom-khung-long-do-choi-schleich.jpeg"
+                            alt="">
+                    </div>
+                    <div class="blog__item__text">
+                        <ul>
+                            <li><i class="fa fa-calendar-o"></i> October 22, 2022</li>
+                            <li><i class="fa fa-comment-o"></i> 8</li>
+                        </ul>
+                        <h5><a
+                                href="https://www.mykingdom.com.vn/blog/top-6-mo-hinh-khung-long-do-choi-ban-chay-cua-hang-schleich">Top
+                                6 best-selling toy dinosaur models of Schleich.</a></h5>
+                        <p>Invite parents and children to explore the ancient world of dragons. The
+                            collection introduces 6 huge toy models... </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,5 +1,5 @@
 <form action="/toy/edit/{{toy._id}}" method="post" class="card p-3 bg-light text-center">
-   <h2 class="text text-primary">Edit </h2>
+   <h2 class="text text-primary">Edit Lego</h2>
    <div class="form-group">
       <label class="text-success h6"> Name</label>
       <input class="form-control" type="text" name="name" value="{{toy.name}}" required 
@@ -22,6 +22,11 @@
    <div class="form-group mt-3">
       <label class="text-success h6">made</label>
       <input class="form-control" type="text" name="made" value="{{toy.made}}" required >
+   </div>
+
+   <div class="form-group mt-3">
+      <label class="text-success h6">Describe</label>
+      <input class="form-control" type="text" name="des" value="{{toy.des}}" required >
    </div>
    <div class="form-group mt-3">
       <input class="btn btn-primary mt-3" type="submit" value="Edit">

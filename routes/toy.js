@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
     ToyModel.find((err, data) => {
         if (!err) {
             //res.send(data)
-            //render ra trang index ở thư mục views/student
+            //render ra trang index ở thư mục views/toy
             res.render('toy/index', { toy: data })
         }
     })
@@ -19,8 +19,8 @@ router.get('/delete/:id', (req, res) => {
             console.log(err)
         } else {
             console.log("Delete toy succeed !");
-            //var message = "Delete student succeed !";
-            //redirect về trang /student (URL không phải view)
+            //var message = "Delete toy succeed !";
+            //redirect về trang /toy (URL không phải view)
             res.redirect("/toy");
         }
     })
@@ -47,9 +47,9 @@ router.post('/add', (req, res) => {
 router.get('/edit/:id', (req, res) => {
     ToyModel.findById(req.params.id, (err, data) => {
         if (!err) {
-            //render ra file: update.hbs (trong thư mục views/student)
-            //gửi kèm dữ liệu của object student để load vào form edit
-            //student (tên) , data (dữ liệu)
+            //render ra file: update.hbs (trong thư mục views/toy)
+            //gửi kèm dữ liệu của object toy để load vào form edit
+            //toy (tên) , data (dữ liệu)
             res.render("toy/update", { toy: data })
         }
     })
