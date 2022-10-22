@@ -7,15 +7,12 @@ var ToySchema = new mongoose.Schema({
     image: String,
     dob: Date,
     des: String,
+    cate: String
 }, {
     versionKey: false //optional (to remove _v: 0 when add new data)
 })
 
 var ToyModel = mongoose.model('Toy', ToySchema, 'toy')
-
-
-
-
 
 
 module.exports = ToyModel
